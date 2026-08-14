@@ -9,15 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* Light Ash Color Palette */
-      --bg: #f1f5f9;            /* Light ash background */
-      --header-bg: rgba(241, 245, 249, 0.9);
-      --card-bg: #ffffff;       /* Crisp white cards for high contrast */
-      --text-main: #0f172a;     /* Dark navy for main text */
-      --text-muted: #475569;    /* Muted slate for descriptions */
-      --accent: #0284c7;        /* Professional cerulean blue accent */
-      --accent-glow: rgba(2, 132, 199, 0.08);
-      --border: #cbd5e1;        /* Soft gray border */
+      /* Dark Ash Color Palette */
+      --bg: #111827;            /* Deep dark ash background */
+      --header-bg: rgba(17, 24, 39, 0.88);
+      --card-bg: #1f293d;       /* Charcoal ash card background */
+      --text-main: #f8fafc;     /* Off-white for high contrast text */
+      --text-muted: #94a3b8;    /* Muted ash-gray for subtext */
+      --accent: #38bdf8;        /* Glowing sky blue accent */
+      --accent-glow: rgba(56, 189, 248, 0.12);
+      --border: #334155;        /* Dark slate border */
       --font: 'Inter', system-ui, -apple-system, sans-serif;
     }
 
@@ -48,16 +48,17 @@
 
     /* Hero */
     .hero { padding: 50px 0 40px; display: grid; grid-template-columns: 2.5fr 1fr; gap: 40px; align-items: center; }
-    .badge { display: inline-block; padding: 4px 12px; background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(2, 132, 199, 0.3); border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
+    .badge { display: inline-block; padding: 4px 12px; background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
     .hero h1 { font-size: 2.6rem; font-weight: 700; line-height: 1.2; margin-bottom: 12px; letter-spacing: -0.5px; }
     .hero p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 24px; }
-    .profile-img { width: 100%; max-width: 240px; aspect-ratio: 1; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.08); }
+    .profile-img { width: 100%; max-width: 240px; aspect-ratio: 1; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 
     /* Buttons */
     .btn { display: inline-block; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; }
-    .btn-primary { background: var(--accent); color: #ffffff; }
+    .btn-primary { background: var(--accent); color: #0f172a; }
     .btn-primary:hover { opacity: 0.9; }
     .btn-secondary { border: 1px solid var(--border); color: var(--text-main); background: var(--card-bg); margin-left: 12px; }
+    .btn-secondary:hover { border-color: var(--accent); }
 
     /* Sections */
     section { padding: 50px 0; border-top: 1px solid var(--border); }
@@ -65,25 +66,25 @@
     .section-title::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 
     /* News Box */
-    .news-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; max-height: 200px; overflow-y: auto; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+    .news-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; max-height: 200px; overflow-y: auto; }
     .news-item { display: flex; gap: 16px; font-size: 0.9rem; margin-bottom: 12px; align-items: baseline; }
     .news-date { color: var(--accent); font-weight: 600; white-space: nowrap; }
 
     /* Cards & Grids */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: transform 0.2s, border-color 0.2s; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
     .card:hover { transform: translateY(-3px); border-color: var(--accent); }
     .card h3 { font-size: 1.15rem; margin-bottom: 8px; color: var(--text-main); }
     .card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px; }
 
     /* Media Handling (Photos & Videos) */
-    .media-container { width: 100%; border-radius: 8px; overflow: hidden; margin-bottom: 16px; background: #e2e8f0; aspect-ratio: 16/9; }
+    .media-container { width: 100%; border-radius: 8px; overflow: hidden; margin-bottom: 16px; background: #000000; aspect-ratio: 16/9; }
     .media-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .media-container iframe { width: 100%; height: 100%; border: none; }
 
     /* Tags & Links */
     .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; margin-top: auto; }
-    .tag { background: #f8fafc; border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
+    .tag { background: #111827; border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
     .card-links { display: flex; gap: 16px; font-size: 0.88rem; }
     .card-links a { color: var(--accent); text-decoration: none; font-weight: 600; }
     .card-links a:hover { text-decoration: underline; }
@@ -98,14 +99,13 @@
       display: flex; 
       gap: 20px; 
       align-items: flex-start;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
     }
     .inst-logo { 
       width: 52px; 
       height: 52px; 
       border-radius: 8px; 
       object-fit: contain; 
-      background: #f8fafc;
+      background: #ffffff; /* White bg keeps logos visible on dark ash cards */
       border: 1px solid var(--border);
       padding: 4px;
       flex-shrink: 0;
@@ -212,7 +212,6 @@
         <!-- MS Project 1 (With Video Embed) -->
         <div class="card">
           <div class="media-container">
-            <!-- Embed YouTube video link or local <video controls><source src="video.mp4"></video> -->
             <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Project Video Demo" allowfullscreen></iframe>
           </div>
           <h3>Risk-Aware UAV Navigation</h3>
@@ -267,7 +266,7 @@
       </div>
     </section>
 
-    <!-- Publications Section (With Journal/Conference Logos) -->
+    <!-- Publications Section -->
     <section id="publications">
       <h2 class="section-title">Publications</h2>
       <ul class="logo-list">
@@ -307,7 +306,7 @@
       </ul>
     </section>
 
-    <!-- Education & Experience (With Institutional/Company Logos) -->
+    <!-- Education & Experience -->
     <section id="experience">
       <h2 class="section-title">Education & Professional Experience</h2>
       
@@ -353,7 +352,7 @@
       </ul>
     </section>
 
-    <!-- Awards & Honors Section (With Awarding Body Logos) -->
+    <!-- Awards & Honors -->
     <section id="awards">
       <h2 class="section-title">Awards & Honors</h2>
       <ul class="logo-list">
