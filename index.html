@@ -9,76 +9,113 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f172a;
-      --card-bg: #1e293b;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --accent: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.15);
-      --border: #334155;
+      /* Light Ash Color Palette */
+      --bg: #f1f5f9;            /* Light ash background */
+      --header-bg: rgba(241, 245, 249, 0.9);
+      --card-bg: #ffffff;       /* Crisp white cards for high contrast */
+      --text-main: #0f172a;     /* Dark navy for main text */
+      --text-muted: #475569;    /* Muted slate for descriptions */
+      --accent: #0284c7;        /* Professional cerulean blue accent */
+      --accent-glow: rgba(2, 132, 199, 0.08);
+      --border: #cbd5e1;        /* Soft gray border */
       --font: 'Inter', system-ui, -apple-system, sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { background-color: var(--bg); color: var(--text-main); font-family: var(--font); line-height: 1.6; padding-top: 80px; }
+    body { 
+      background-color: var(--bg); 
+      color: var(--text-main); 
+      font-family: var(--font); 
+      line-height: 1.6; 
+      padding-top: 80px; 
+    }
 
     .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
     /* Navigation */
     header {
       position: fixed; top: 0; left: 0; width: 100%;
-      background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(12px);
+      background: var(--header-bg); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border); z-index: 1000;
     }
     nav { display: flex; justify-content: space-between; align-items: center; height: 70px; }
-    .logo { font-weight: 700; font-size: 1.1rem; color: var(--text-main); text-decoration: none; }
+    .logo { font-weight: 700; font-size: 1.15rem; color: var(--text-main); text-decoration: none; }
     .logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 20px; list-style: none; }
     .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
 
     /* Hero */
-    .hero { padding: 60px 0 40px; display: grid; grid-template-columns: 2.5fr 1fr; gap: 40px; align-items: center; }
-    .badge { display: inline-block; padding: 4px 12px; background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 20px; font-size: 0.85rem; font-weight: 500; margin-bottom: 16px; }
-    .hero h1 { font-size: 2.6rem; font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
+    .hero { padding: 50px 0 40px; display: grid; grid-template-columns: 2.5fr 1fr; gap: 40px; align-items: center; }
+    .badge { display: inline-block; padding: 4px 12px; background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(2, 132, 199, 0.3); border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
+    .hero h1 { font-size: 2.6rem; font-weight: 700; line-height: 1.2; margin-bottom: 12px; letter-spacing: -0.5px; }
     .hero p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 24px; }
-    .profile-img { width: 100%; max-width: 240px; aspect-ratio: 1; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); }
+    .profile-img { width: 100%; max-width: 240px; aspect-ratio: 1; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.08); }
+
+    /* Buttons */
+    .btn { display: inline-block; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; }
+    .btn-primary { background: var(--accent); color: #ffffff; }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-secondary { border: 1px solid var(--border); color: var(--text-main); background: var(--card-bg); margin-left: 12px; }
 
     /* Sections */
     section { padding: 50px 0; border-top: 1px solid var(--border); }
-    .section-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
+    .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 28px; display: flex; align-items: center; gap: 12px; color: var(--text-main); }
     .section-title::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 
     /* News Box */
-    .news-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px; max-height: 200px; overflow-y: auto; }
-    .news-item { display: flex; gap: 16px; font-size: 0.9rem; margin-bottom: 12px; }
+    .news-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; max-height: 200px; overflow-y: auto; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+    .news-item { display: flex; gap: 16px; font-size: 0.9rem; margin-bottom: 12px; align-items: baseline; }
     .news-date { color: var(--accent); font-weight: 600; white-space: nowrap; }
 
-    /* Grid Layouts */
+    /* Cards & Grids */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; }
-    .card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: transform 0.2s, border-color 0.2s; }
+    .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .card h3 { font-size: 1.15rem; margin-bottom: 8px; color: var(--text-main); }
     .card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px; }
 
-    /* Media Handling (Images & Video Embeds) */
-    .media-container { width: 100%; border-radius: 8px; overflow: hidden; margin-bottom: 16px; background: #000; }
-    .media-container img { width: 100%; height: 200px; object-fit: cover; display: block; }
-    .media-container iframe { width: 100%; height: 200px; border: none; }
+    /* Media Handling (Photos & Videos) */
+    .media-container { width: 100%; border-radius: 8px; overflow: hidden; margin-bottom: 16px; background: #e2e8f0; aspect-ratio: 16/9; }
+    .media-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .media-container iframe { width: 100%; height: 100%; border: none; }
 
     /* Tags & Links */
     .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; margin-top: auto; }
-    .tag { background: #0f172a; border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; color: var(--text-muted); }
-    .card-links { display: flex; gap: 16px; font-size: 0.85rem; }
-    .card-links a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .tag { background: #f8fafc; border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
+    .card-links { display: flex; gap: 16px; font-size: 0.88rem; }
+    .card-links a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .card-links a:hover { text-decoration: underline; }
 
-    /* Timeline Lists (Education & Experience) */
-    .timeline { list-style: none; position: relative; padding-left: 20px; border-left: 2px solid var(--border); }
-    .timeline-item { margin-bottom: 24px; position: relative; }
-    .timeline-item::before { content: ""; position: absolute; left: -26px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
-    .timeline-title { font-weight: 600; font-size: 1.05rem; }
-    .timeline-sub { color: var(--accent); font-size: 0.9rem; font-weight: 500; margin-bottom: 4px; }
-    .timeline-date { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 8px; }
+    /* List Layout with Logos (Education, Experience, Publications, Awards) */
+    .logo-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .logo-item { 
+      background: var(--card-bg); 
+      border: 1px solid var(--border); 
+      border-radius: 12px; 
+      padding: 18px 20px; 
+      display: flex; 
+      gap: 20px; 
+      align-items: flex-start;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .inst-logo { 
+      width: 52px; 
+      height: 52px; 
+      border-radius: 8px; 
+      object-fit: contain; 
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .item-details { flex: 1; }
+    .item-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; }
+    .item-title { font-weight: 600; font-size: 1.05rem; color: var(--text-main); }
+    .item-sub { color: var(--accent); font-size: 0.9rem; font-weight: 500; margin-top: 2px; }
+    .item-date { color: var(--text-muted); font-size: 0.82rem; font-weight: 500; white-space: nowrap; }
+    .item-desc { color: var(--text-muted); font-size: 0.88rem; margin-top: 8px; }
 
     /* Footer */
     footer { padding: 30px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.85rem; }
@@ -87,6 +124,7 @@
       .hero { grid-template-columns: 1fr; text-align: center; }
       .profile-img { margin: 0 auto; }
       .nav-links { display: none; }
+      .logo-item { flex-direction: column; gap: 12px; }
     }
   </style>
 </head>
@@ -104,6 +142,7 @@
           <li><a href="#bsc-projects">BSc Projects</a></li>
           <li><a href="#publications">Publications</a></li>
           <li><a href="#experience">Experience</a></li>
+          <li><a href="#awards">Awards</a></li>
         </ul>
       </nav>
     </div>
@@ -116,10 +155,10 @@
       <div>
         <span class="badge">Robotics Researcher</span>
         <h1>Md Mukidur Rahman</h1>
-        <p>Specializing in autonomous navigation, motion planning, multi-robot systems, and edge perception for complex environments.</p>
+        <p>Specializing in autonomous navigation, dynamic motion planning, multi-robot systems, and edge perception for complex real-world environments.</p>
         <div>
-          <a href="#publications" class="btn" style="background: var(--accent); color:#0f172a; padding: 10px 18px; border-radius:6px; text-decoration:none; font-weight:600;">Publications</a>
-          <a href="#ms-projects" style="color: var(--text-main); margin-left:16px; text-decoration:none;">Explore Projects →</a>
+          <a href="#publications" class="btn btn-primary">Publications</a>
+          <a href="#ms-projects" class="btn btn-secondary">Explore Projects →</a>
         </div>
       </div>
       <div>
@@ -133,11 +172,11 @@
       <div class="news-box">
         <div class="news-item">
           <span class="news-date">[Aug 2026]</span>
-          <span>Paper accepted at IEEE International Conference on Robotics and Automation!</span>
+          <span>Paper accepted at IEEE International Conference on Robotics and Automation (ICRA)!</span>
         </div>
         <div class="news-item">
           <span class="news-date">[May 2026]</span>
-          <span>Successfully defended Master's Thesis on Risk-Aware Motion Planning.</span>
+          <span>Successfully defended Master's Thesis on Risk-Aware Autonomous Navigation.</span>
         </div>
         <div class="news-item">
           <span class="news-date">[Jan 2026]</span>
@@ -151,151 +190,183 @@
       <h2 class="section-title">Research Focus</h2>
       <div class="grid">
         <div class="card">
-          <h3>Autonomous Navigation & Planning</h3>
-          <p>Risk-aware motion planning algorithms, perception-enhanced human heading, and trajectory optimization in dynamically changing environments.</p>
+          <h3>Autonomous Navigation & Motion Planning</h3>
+          <p>Risk-aware trajectory generation, real-time perception-enhanced obstacle avoidance, and human-safe navigation frameworks.</p>
         </div>
         <div class="card">
           <h3>Swarm & Multi-Robot Systems</h3>
-          <p>Decentralized collaborative mapping, multi-level UAV swarm exploration, and cooperative spatial sensing.</p>
+          <p>Decentralized multi-UAV exploration, cooperative aerial mapping, and spatial coordination in unstructured environments.</p>
         </div>
         <div class="card">
-          <h3>Edge Perception & AI</h3>
-          <p>Lightweight computer vision, Vision-Language Models (VLMs) tailored for resource-constrained embedded systems, and real-time obstacle detection.</p>
+          <h3>Edge Perception & Embedded AI</h3>
+          <p>Vision-Language Models (VLMs) optimized for resource-constrained robotic hardware and real-time computer vision pipelines.</p>
         </div>
       </div>
     </section>
 
-    <!-- MS Projects -->
+    <!-- Master's Projects -->
     <section id="ms-projects">
       <h2 class="section-title">Master's Research & Projects</h2>
       <div class="grid">
 
-        <!-- MS Project 1 with Video Embed -->
+        <!-- MS Project 1 (With Video Embed) -->
         <div class="card">
           <div class="media-container">
-            <!-- Replace src with your YouTube embed link or HTML5 <video> tag -->
-            <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Project Video" allowfullscreen></iframe>
+            <!-- Embed YouTube video link or local <video controls><source src="video.mp4"></video> -->
+            <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Project Video Demo" allowfullscreen></iframe>
           </div>
           <h3>Risk-Aware UAV Navigation</h3>
-          <p>A dynamic motion planning framework ensuring safe UAV flight paths around dynamic human obstacles in real time.</p>
+          <p>A safety-critical navigation framework ensuring autonomous aerial vehicles avoid dynamic human obstacles in real-time scenarios.</p>
           <div class="tags">
-            <span class="tag">ROS</span><span class="tag">C++</span><span class="tag">PyTorch</span><span class="tag">UAV</span>
+            <span class="tag">ROS</span><span class="tag">C++</span><span class="tag">PyTorch</span><span class="tag">UAV Navigation</span>
           </div>
           <div class="card-links">
-            <a href="#">Paper Link →</a>
-            <a href="#">Code Repo →</a>
+            <a href="#">Paper PDF →</a>
+            <a href="#">GitHub Repo →</a>
           </div>
         </div>
 
-        <!-- MS Project 2 with Image -->
+        <!-- MS Project 2 (With Image) -->
         <div class="card">
           <div class="media-container">
-            <img src="project-ms2.jpg" alt="Decentralized UAV Swarm" />
+            <img src="project-swarm.jpg" alt="Decentralized UAV Swarm" />
           </div>
           <h3>Decentralized Swarm Exploration</h3>
-          <p>Multi-UAV cooperative mapping algorithm for large-scale environment exploration using RTK-GPS perception.</p>
+          <p>Collaborative multi-UAV mapping framework built for large-scale ecological survey using onboard RTK-GPS sensing.</p>
           <div class="tags">
             <span class="tag">Swarm Robotics</span><span class="tag">OpenCV</span><span class="tag">RTK-GPS</span>
           </div>
           <div class="card-links">
             <a href="#">Demo Video →</a>
-            <a href="#">GitHub →</a>
+            <a href="#">Code →</a>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- BSc Projects -->
+    <!-- Bachelor's Projects -->
     <section id="bsc-projects">
       <h2 class="section-title">Bachelor's Projects</h2>
       <div class="grid">
 
         <div class="card">
           <div class="media-container">
-            <img src="project-bsc1.jpg" alt="Line Following Autonomous Robot" />
+            <img src="project-bsc.jpg" alt="Vision-Based Autonomous Rover" />
           </div>
-          <h3>Vision-Based Autonomous Rover</h3>
-          <p>Designed and fabricated a prototype ground vehicle capable of obstacle avoidance using embedded microcontrollers and basic computer vision.</p>
+          <h3>Vision-Based Autonomous Ground Vehicle</h3>
+          <p>Designed and fabricated a custom mobile rover equipped with vision-guided obstacle detection and path tracking.</p>
           <div class="tags">
-            <span class="tag">Arduino</span><span class="tag">Python</span><span class="tag">OpenCV</span>
+            <span class="tag">Embedded Systems</span><span class="tag">Python</span><span class="tag">OpenCV</span>
           </div>
           <div class="card-links">
-            <a href="#">Report PDF →</a>
+            <a href="#">Technical Report →</a>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- Publications -->
+    <!-- Publications Section (With Journal/Conference Logos) -->
     <section id="publications">
       <h2 class="section-title">Publications</h2>
+      <ul class="logo-list">
 
-      <h3 style="color: var(--accent); margin-bottom: 16px;">Journal Articles</h3>
-      <ul class="timeline" style="margin-bottom: 32px;">
-        <li class="timeline-item">
-          <div class="timeline-title">Mutual Information-Guided Adaptive Vision-Language Models on Edge Devices</div>
-          <div class="timeline-sub">IEEE Transactions on Robotics (T-RO) — Under Review</div>
-          <div class="timeline-date"><b>Md Mukidur Rahman</b>, Co-Authors</div>
+        <!-- Journal Publication -->
+        <li class="logo-item">
+          <img src="logos/ieee.png" alt="IEEE Logo" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Mutual Information-Guided Adaptive Vision-Language Models on Edge Devices</div>
+              <span class="item-date">2026</span>
+            </div>
+            <div class="item-sub">IEEE Transactions on Robotics (T-RO)</div>
+            <div class="item-desc"><b>Md Mukidur Rahman</b>, Co-Authors</div>
+            <div class="card-links" style="margin-top: 10px;">
+              <a href="#">[Journal Link]</a> <a href="#">[PDF]</a> <a href="#">[Code]</a>
+            </div>
+          </div>
         </li>
-      </ul>
 
-      <h3 style="color: var(--accent); margin-bottom: 16px;">Conference Papers</h3>
-      <ul class="timeline">
-        <li class="timeline-item">
-          <div class="timeline-title">Risk-Aware Motion Planning for Human-Safe UAV Navigation</div>
-          <div class="timeline-sub">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</div>
-          <div class="timeline-date"><b>Md Mukidur Rahman</b>, Co-Authors</div>
-          <div class="card-links"><a href="#">[PDF]</a> <a href="#">[Code]</a> <a href="#">[Video]</a></div>
+        <!-- Conference Publication -->
+        <li class="logo-item">
+          <img src="logos/iros.png" alt="IROS Logo" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Risk-Aware Motion Planning for Human-Safe UAV Navigation</div>
+              <span class="item-date">2025</span>
+            </div>
+            <div class="item-sub">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</div>
+            <div class="item-desc"><b>Md Mukidur Rahman</b>, Co-Authors</div>
+            <div class="card-links" style="margin-top: 10px;">
+              <a href="#">[Conference Paper]</a> <a href="#">[Video]</a> <a href="#">[GitHub]</a>
+            </div>
+          </div>
         </li>
+
       </ul>
     </section>
 
-    <!-- Education & Experience -->
+    <!-- Education & Experience (With Institutional/Company Logos) -->
     <section id="experience">
-      <h2 class="section-title">Education & Experience</h2>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+      <h2 class="section-title">Education & Professional Experience</h2>
+      
+      <h3 style="color: var(--accent); margin-bottom: 16px;">Education</h3>
+      <ul class="logo-list" style="margin-bottom: 32px;">
+        <li class="logo-item">
+          <img src="logos/university-ms.png" alt="MS University Logo" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Master of Science in Robotics / Artificial Intelligence</div>
+              <span class="item-date">2024 - 2026</span>
+            </div>
+            <div class="item-sub">Graduate University Name</div>
+            <div class="item-desc">Focus on Multi-Robot Systems, Autonomous Navigation, and Computer Vision.</div>
+          </div>
+        </li>
+        <li class="logo-item">
+          <img src="logos/university-bsc.png" alt="BSc University Logo" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Bachelor of Science in Engineering</div>
+              <span class="item-date">2019 - 2023</span>
+            </div>
+            <div class="item-sub">Undergraduate University Name</div>
+            <div class="item-desc">Graduated with Honors. Specialized in Embedded Robotics and Control Systems.</div>
+          </div>
+        </li>
+      </ul>
 
-        <div>
-          <h3 style="color: var(--accent); margin-bottom: 20px;">Education</h3>
-          <ul class="timeline">
-            <li class="timeline-item">
-              <div class="timeline-title">Master of Science in Robotics / AI</div>
-              <div class="timeline-sub">University Name</div>
-              <div class="timeline-date">2024 - 2026</div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-title">Bachelor of Science in Engineering</div>
-              <div class="timeline-sub">University Name</div>
-              <div class="timeline-date">2019 - 2023</div>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 style="color: var(--accent); margin-bottom: 20px;">Experience</h3>
-          <ul class="timeline">
-            <li class="timeline-item">
-              <div class="timeline-title">Graduate Research Assistant</div>
-              <div class="timeline-sub">Robotics Lab</div>
-              <div class="timeline-date">2024 - Present</div>
-              <p style="font-size: 0.85rem; color: var(--text-muted);">Lead research on autonomous navigation and vision algorithms.</p>
-            </li>
-          </ul>
-        </div>
-
-      </div>
+      <h3 style="color: var(--accent); margin-bottom: 16px;">Professional Experience</h3>
+      <ul class="logo-list">
+        <li class="logo-item">
+          <img src="logos/lab-logo.png" alt="Lab Logo" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Graduate Research Assistant</div>
+              <span class="item-date">2024 - Present</span>
+            </div>
+            <div class="item-sub">Autonomous Systems & Perception Lab</div>
+            <div class="item-desc">Led algorithm development for risk-aware UAV path planning and edge VLM optimization.</div>
+          </div>
+        </li>
+      </ul>
     </section>
 
-    <!-- Awards -->
+    <!-- Awards & Honors Section (With Awarding Body Logos) -->
     <section id="awards">
       <h2 class="section-title">Awards & Honors</h2>
-      <ul class="timeline">
-        <li class="timeline-item">
-          <div class="timeline-title">Best Student Paper Award</div>
-          <div class="timeline-sub">International Robotics Symposium</div>
-          <div class="timeline-date">2025</div>
+      <ul class="logo-list">
+        <li class="logo-item">
+          <img src="logos/award-logo.png" alt="Awarding Organization Logo" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Best Student Paper Presentation Award</div>
+              <span class="item-date">2025</span>
+            </div>
+            <div class="item-sub">International Robotics Symposium</div>
+            <div class="item-desc">Recognized for outstanding presentation on multi-UAV decentralized motion control.</div>
+          </div>
         </li>
       </ul>
     </section>
@@ -304,7 +375,7 @@
 
   <footer>
     <div class="container">
-      <p>© 2026 Md Mukidur Rahman. All rights reserved.</p>
+      <p>© 2026 Md Mukidur Rahman. Hosted on GitHub Pages.</p>
     </div>
   </footer>
 
