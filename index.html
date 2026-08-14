@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Md Mukidur Rahman | UAV & ROS 2 Robotics Researcher</title>
+  <title>Md. Mukidur Rahman | UAV & ROS 2 Robotics Researcher</title>
   
-  <!-- Robotics / Developer Fonts: Space Grotesk & JetBrains Mono -->
+  <!-- Developer & Engineering Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      /* Dark Ash + ROS 2 / Cybernetic UAV Palette */
+      /* Dark Ash + UAV / ROS 2 Aesthetics */
       --bg: #6A6D6D;
-      --header-bg: rgba(106, 109, 109, 0.94);
-      --card-bg: #525656;
+      --header-bg: rgba(106, 109, 109, 0.95);
+      --card-bg: #545757;
       --terminal-bg: #2d3030;
       --text-main: #ffffff;
-      --text-muted: #d5d9d9;
-      --accent: #22d3ee;           /* UAV Sensor Cyan */
-      --ros-blue: #38bdf8;         /* ROS 2 Theme Blue */
-      --status-green: #4ade80;     /* System Active Green */
-      --border: #7f8383;
-      --chip-bg: #3f4242;
+      --text-muted: #dcdfe3;
+      --accent: #67e8f9;           /* Clean Sensor Cyan */
+      --accent-glow: rgba(103, 232, 249, 0.15);
+      --status-green: #4ade80;
+      --border: #7e8282;
+      --chip-bg: #404343;
       --font-heading: 'Space Grotesk', system-ui, sans-serif;
       --font-code: 'JetBrains Mono', monospace;
     }
@@ -36,7 +36,6 @@
       font-family: var(--font-heading); 
       line-height: 1.6; 
       padding-top: 80px; 
-      /* Subtle UAV flight-grid overlay */
       background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
                         linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
       background-size: 40px 40px;
@@ -59,18 +58,18 @@
       text-decoration: none; 
     }
     .logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 20px; list-style: none; }
+    .nav-links { display: flex; gap: 16px; list-style: none; }
     .nav-links a { 
       font-family: var(--font-code); 
       color: var(--text-muted); 
       text-decoration: none; 
-      font-size: 0.85rem; 
+      font-size: 0.82rem; 
       transition: color 0.2s; 
     }
     .nav-links a:hover { color: var(--accent); }
 
     /* Hero */
-    .hero { padding: 50px 0 40px; display: grid; grid-template-columns: 2.3fr 1fr; gap: 40px; align-items: center; }
+    .hero { padding: 40px 0 40px; display: grid; grid-template-columns: 2.3fr 1fr; gap: 40px; align-items: center; }
     
     .status-badge { 
       display: inline-flex; 
@@ -83,33 +82,30 @@
       border-radius: 4px; 
       font-family: var(--font-code); 
       font-size: 0.8rem; 
-      margin-bottom: 18px; 
+      margin-bottom: 16px; 
     }
     .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--status-green); box-shadow: 0 0 8px var(--status-green); }
 
-    /* Animated Name Header */
-    .name-container {
-      margin-bottom: 14px;
-    }
+    /* Animated Name */
+    .name-container { margin-bottom: 12px; }
     .ros-node-tag {
       font-family: var(--font-code);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--accent);
       margin-bottom: 4px;
       display: block;
     }
     .animated-name {
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       font-weight: 700;
       line-height: 1.15;
       letter-spacing: -0.5px;
       display: inline-block;
-      position: relative;
     }
     .cursor {
       display: inline-block;
-      width: 12px;
-      height: 2.2rem;
+      width: 10px;
+      height: 2rem;
       background-color: var(--accent);
       margin-left: 6px;
       vertical-align: middle;
@@ -120,10 +116,20 @@
       50% { opacity: 0; }
     }
 
-    .hero p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 24px; }
+    .hero-contact {
+      font-family: var(--font-code);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+    .hero-contact a { color: var(--accent); text-decoration: none; }
+    .hero-contact a:hover { text-decoration: underline; }
+
+    .hero p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 24px; }
     .profile-img { 
       width: 100%; 
-      max-width: 240px; 
+      max-width: 230px; 
       aspect-ratio: 1; 
       border-radius: 12px; 
       object-fit: cover; 
@@ -132,84 +138,90 @@
     }
 
     /* Buttons */
-    .btn { display: inline-block; padding: 10px 18px; border-radius: 4px; font-family: var(--font-code); font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: all 0.2s; }
+    .btn { display: inline-block; padding: 8px 16px; border-radius: 4px; font-family: var(--font-code); font-weight: 600; font-size: 0.82rem; text-decoration: none; transition: all 0.2s; }
     .btn-primary { background: var(--accent); color: #1e293b; border: 1px solid var(--accent); }
     .btn-primary:hover { opacity: 0.9; }
-    .btn-secondary { border: 1px solid var(--border); color: var(--text-main); background: var(--card-bg); margin-left: 12px; }
+    .btn-secondary { border: 1px solid var(--border); color: var(--text-main); background: var(--card-bg); margin-left: 10px; }
     .btn-secondary:hover { border-color: var(--accent); }
 
     /* Sections */
-    section { padding: 50px 0; border-top: 1px solid var(--border); }
+    section { padding: 45px 0; border-top: 1px solid var(--border); }
     .section-title { 
-      font-size: 1.5rem; 
+      font-size: 1.45rem; 
       font-weight: 700; 
-      margin-bottom: 28px; 
+      margin-bottom: 24px; 
       display: flex; 
       align-items: center; 
       gap: 12px; 
       font-family: var(--font-heading);
     }
-    .section-title::before {
-      content: "";
+    .section-title::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+    .subsection-title {
       font-family: var(--font-code);
       color: var(--accent);
+      font-size: 1rem;
+      margin: 24px 0 14px;
     }
-    .section-title::after { content: ""; flex: 1; height: 1px; background: var(--border); }
-
-    /* News Box */
-    .news-box { background: var(--terminal-bg); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; max-height: 200px; overflow-y: auto; font-family: var(--font-code); }
-    .news-item { display: flex; gap: 14px; font-size: 0.88rem; margin-bottom: 10px; align-items: baseline; }
-    .news-date { color: var(--accent); font-weight: 700; white-space: nowrap; }
 
     /* Cards & Grids */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
     .card:hover { transform: translateY(-3px); border-color: var(--accent); }
-    .card h3 { font-size: 1.2rem; margin-bottom: 8px; }
-    .card p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 16px; }
+    .card h3 { font-size: 1.15rem; margin-bottom: 6px; }
+    .card .meta { font-family: var(--font-code); font-size: 0.78rem; color: var(--accent); margin-bottom: 10px; }
+    .card p { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 14px; }
 
     /* Media Handling */
-    .media-container { width: 100%; border-radius: 6px; overflow: hidden; margin-bottom: 16px; background: #262828; aspect-ratio: 16/9; border: 1px solid var(--border); }
+    .media-container { width: 100%; border-radius: 6px; overflow: hidden; margin-bottom: 14px; background: #262828; aspect-ratio: 16/9; border: 1px solid var(--border); }
     .media-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .media-container iframe { width: 100%; height: 100%; border: none; }
 
     /* Tags & Links */
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; margin-top: auto; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; margin-top: auto; }
     .tag { background: var(--chip-bg); border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; font-family: var(--font-code); font-size: 0.72rem; color: var(--accent); }
-    .card-links { display: flex; gap: 16px; font-family: var(--font-code); font-size: 0.85rem; }
+    .card-links { display: flex; gap: 14px; font-family: var(--font-code); font-size: 0.82rem; }
     .card-links a { color: var(--accent); text-decoration: none; font-weight: 600; }
     .card-links a:hover { text-decoration: underline; }
 
     /* Logo Item List (Education, Experience, Publications, Awards) */
-    .logo-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .logo-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
     .logo-item { 
       background: var(--card-bg); 
       border: 1px solid var(--border); 
       border-radius: 8px; 
-      padding: 18px 20px; 
+      padding: 16px 18px; 
       display: flex; 
-      gap: 20px; 
+      gap: 16px; 
       align-items: flex-start;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     .inst-logo { 
-      width: 52px; 
-      height: 52px; 
+      width: 48px; 
+      height: 48px; 
       border-radius: 6px; 
       object-fit: contain; 
       background: #ffffff; 
       border: 1px solid var(--border);
-      padding: 4px;
+      padding: 3px;
       flex-shrink: 0;
     }
     .item-details { flex: 1; }
     .item-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; }
-    .item-title { font-weight: 600; font-size: 1.05rem; }
-    .item-sub { color: var(--accent); font-family: var(--font-code); font-size: 0.88rem; margin-top: 2px; }
-    .item-date { color: var(--text-muted); font-family: var(--font-code); font-size: 0.8rem; white-space: nowrap; }
-    .item-desc { color: var(--text-muted); font-size: 0.9rem; margin-top: 8px; }
+    .item-title { font-weight: 600; font-size: 1rem; }
+    .item-sub { color: var(--accent); font-family: var(--font-code); font-size: 0.85rem; margin-top: 2px; }
+    .item-date { color: var(--text-muted); font-family: var(--font-code); font-size: 0.78rem; white-space: nowrap; }
+    .item-desc { color: var(--text-muted); font-size: 0.86rem; margin-top: 6px; }
+    .item-desc ul { margin-left: 18px; margin-top: 6px; }
+    .item-desc li { margin-bottom: 4px; }
+
+    /* Skills Grid */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .skill-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+    .skill-box h4 { font-family: var(--font-code); color: var(--accent); font-size: 0.9rem; margin-bottom: 8px; }
+    .skill-box p { font-size: 0.85rem; color: var(--text-muted); }
 
     /* Footer */
-    footer { padding: 30px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-family: var(--font-code); font-size: 0.8rem; }
+    footer { padding: 25px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-family: var(--font-code); font-size: 0.8rem; }
 
     @media (max-width: 768px) {
       .hero { grid-template-columns: 1fr; text-align: center; }
@@ -227,13 +239,15 @@
       <nav>
         <a href="#" class="logo">/ros2_ws/<span>rahman_robotics</span></a>
         <ul class="nav-links">
-          <li><a href="#about">~/about</a></li>
-          <li><a href="#news">~/news</a></li>
-          <li><a href="#ms-projects">~/ms_projects</a></li>
-          <li><a href="#bsc-projects">~/bsc_projects</a></li>
-          <li><a href="#publications">~/publications</a></li>
-          <li><a href="#experience">~/experience</a></li>
-          <li><a href="#awards">~/awards</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#focus">Focus</a></li>
+          <li><a href="#ms-projects">MS Projects</a></li>
+          <li><a href="#bsc-projects">BSc/Industry</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#awards">Awards</a></li>
         </ul>
       </nav>
     </div>
@@ -246,7 +260,7 @@
       <div>
         <div class="status-badge">
           <span class="status-dot"></span>
-          <span>ROS2_DOMAIN_ID=42 | UAV Autonomy Online</span>
+          <span>ROS 2 Autonomous Systems & UAV Navigation Active</span>
         </div>
         
         <div class="name-container">
@@ -256,121 +270,126 @@
           </h1>
         </div>
 
-        <p>Specializing in autonomous UAV navigation, ROS 2 decentralized swarm architectures, risk-aware trajectory optimization, and edge computer vision pipelines.</p>
+        <div class="hero-contact">
+          B.Sc., M.Eng. | Contact: +82 01-6848-9601 | Email: <a href="mailto:mukidur.rahman13@gmail.com">mukidur.rahman13@gmail.com</a><br>
+          <a href="#">[ResearchGate Profile]</a> &bull; <a href="#">[LinkedIn Profile]</a>
+        </div>
+
+        <p>Specializing in Robotics, Autonomous Systems, UAV Control & Navigation, Cyber-Physical Systems, Artificial Intelligence, and Multi-Agent Swarm Architectures.</p>
         
         <div>
-          <a href="#publications" class="btn btn-primary">cat publications.txt</a>
-          <a href="#ms-projects" class="btn btn-secondary">ros2 launch projects</a>
+          <a href="#publications" class="btn btn-primary">View Publications</a>
+          <a href="#ms-projects" class="btn btn-secondary">Explore Projects</a>
         </div>
       </div>
       <div>
-        <img src="assets/images/profile.jpg" alt="Md Mukidur Rahman" class="profile-img" />
+        <img src="assets/images/profile.jpg" alt="Md. Mukidur Rahman" class="profile-img" />
       </div>
     </section>
 
-    <!-- News Section -->
-    <section id="news">
-      <h2 class="section-title">Telemetry & System Updates</h2>
-      <div class="news-box">
-        <div class="news-item">
-          <span class="news-date">[2026.08]</span>
-          <span>[INFO] Paper accepted at IEEE International Conference on Robotics and Automation (ICRA)!</span>
-        </div>
-        <div class="news-item">
-          <span class="news-date">[2026.05]</span>
-          <span>[SUCCESS] Successfully defended Master's Thesis on Risk-Aware Autonomous Navigation.</span>
-        </div>
-        <div class="news-item">
-          <span class="news-date">[2026.01]</span>
-          <span>[AWARD] Best Paper Presentation Award received at National Robotics Symposium.</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Research Focus -->
+    <!-- Research Interests -->
     <section id="focus">
-      <h2 class="section-title">Core Research Focus</h2>
+      <h2 class="section-title">Research Interests</h2>
       <div class="grid">
         <div class="card">
-          <h3>Autonomous UAV Motion Planning</h3>
-          <p>Real-time risk-aware trajectory planning, dynamic collision avoidance with humans, and perception-enhanced state estimation.</p>
+          <h3>UAV Control & Autonomous Navigation</h3>
+          <p>Risk-aware motion planning, human-safe aerial trajectories, dynamic obstacle perception, and velocity-obstacle guided predictive control.</p>
           <div class="tags">
-            <span class="tag">/cmd_vel</span><span class="tag">TrajectoryGen</span><span class="tag">Nav2</span>
+            <span class="tag">VO-Guided MPC</span><span class="tag">RAMP</span><span class="tag">TrajectoryGen</span>
           </div>
         </div>
         <div class="card">
-          <h3>ROS 2 Swarm Exploration</h3>
-          <p>Decentralized multi-agent cooperative mapping, peer-to-peer telemetry synchronization, and collaborative aerial coverage.</p>
+          <h3>Multi-Agent & Swarm Exploration</h3>
+          <p>Decentralized multi-UAV exploration, continuous vehicle telemetry synchronization, and multi-GCS seamless handover systems.</p>
           <div class="tags">
-            <span class="tag">DDS/Zenoh</span><span class="tag">Swarm_Sync</span><span class="tag">RTK-GPS</span>
+            <span class="tag">Multi-UAV</span><span class="tag">ROS 2</span><span class="tag">Multi-GCS Handover</span>
           </div>
         </div>
         <div class="card">
-          <h3>Edge Perception & Vision Models</h3>
-          <p>Optimized Vision-Language Models (VLMs) and lightweight object detection models running directly on embedded drone hardware.</p>
+          <h3>Perception & Cyber-Physical Systems</h3>
+          <p>LiDAR/RGB-D sensor fusion, multi-sensor orchard mapping, industrial AGVs, and robust control strategies.</p>
           <div class="tags">
-            <span class="tag">YOLO</span><span class="tag">Jetson_Edge</span><span class="tag">TensorRT</span>
+            <span class="tag">LiDAR/RGB-D</span><span class="tag">Sensor Fusion</span><span class="tag">CPS</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- MS Projects -->
+    <!-- Master's Projects -->
     <section id="ms-projects">
-      <h2 class="section-title">Master's Research & Projects</h2>
+      <h2 class="section-title">Master's Research & Projects (M.Eng.)</h2>
       <div class="grid">
 
-        <!-- MS Project 1 (With Video Embed) -->
+        <!-- Project 1 -->
         <div class="card">
           <div class="media-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Project Demo" allowfullscreen></iframe>
+            <img src="assets/images/aeroterra.jpg" alt="Aeroterra Multi UAV Exploration" />
           </div>
-          <h3>Risk-Aware UAV Navigation</h3>
-          <p>A safety-critical navigation framework ensuring autonomous aerial vehicles avoid dynamic human obstacles in real-time ROS 2 simulations and physical flights.</p>
+          <h3>Aeroterra (Multi UAV Exploration)</h3>
+          <div class="meta">Funded by WENS Lab | 2026 – Ongoing</div>
+          <p>Developing a multi-UAV system for exploration with robust coordination. Responsible for LiDAR and camera-based perception, localization, and collaborative exploration planning.</p>
           <div class="tags">
-            <span class="tag">ROS2</span><span class="tag">C++20</span><span class="tag">PyTorch</span><span class="tag">PX4_Autopilot</span>
-          </div>
-          <div class="card-links">
-            <a href="#">view_paper.pdf →</a>
-            <a href="#">github_repo →</a>
+            <span class="tag">Multi-UAV</span><span class="tag">LiDAR</span><span class="tag">Perception</span><span class="tag">Localization</span>
           </div>
         </div>
 
-        <!-- MS Project 2 (With Image) -->
+        <!-- Project 2 -->
         <div class="card">
           <div class="media-container">
-            <img src="assets/images/project-swarm.jpg" alt="Decentralized UAV Swarm" />
+            <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="UAV Obstacle Avoidance" allowfullscreen></iframe>
           </div>
-          <h3>Decentralized UAV Swarm Mapping</h3>
-          <p>Cooperative aerial mapping system for spatial exploration using centimeter-accurate Holybro/SparkFun RTK-GPS perception rovers.</p>
+          <h3>UAV Obstacle Avoidance</h3>
+          <div class="meta">Funded by WENS Lab | 2025</div>
+          <p>Developing a multi-UAV framework with robust coordination. Focused on RGB-D camera-based perception and real-time static/dynamic obstacle detection.</p>
           <div class="tags">
-            <span class="tag">Multi-UAV</span><span class="tag">OpenCV</span><span class="tag">RTK-F9P</span>
+            <span class="tag">RGB-D</span><span class="tag">Obstacle Detection</span><span class="tag">ROS 2</span>
           </div>
-          <div class="card-links">
-            <a href="#">view_demo →</a>
-            <a href="#">source_code →</a>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="card">
+          <div class="media-container">
+            <img src="assets/images/multi-gcs.jpg" alt="Multi-GCS Handover" />
+          </div>
+          <h3>Multi-GCS UAV Handover</h3>
+          <div class="meta">Funded by WENS Lab | 2025</div>
+          <p>Designed and implemented a Multi-GCS Seamless Handover System for long-range UAVs. Developed ROS 2 network architecture to manage control authority and maintain continuous telemetry synchronization across stations.</p>
+          <div class="tags">
+            <span class="tag">ROS 2 Network</span><span class="tag">Telemetry Sync</span><span class="tag">Long-Range UAV</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- BSc Projects -->
+    <!-- Bachelor's & Industrial Projects -->
     <section id="bsc-projects">
-      <h2 class="section-title">Bachelor's Projects</h2>
+      <h2 class="section-title">Bachelor's & Industrial Projects</h2>
       <div class="grid">
 
+        <!-- Project 4 -->
         <div class="card">
           <div class="media-container">
-            <img src="assets/images/project-bsc.jpg" alt="Vision Rover" />
+            <img src="assets/images/agv-fixture.jpg" alt="AGV Fixture Automation" />
           </div>
-          <h3>Vision-Guided Autonomous Mobile Rover</h3>
-          <p>Custom mobile ground vehicle architecture designed with obstacle detection, sensor fusion, and PID path tracking control.</p>
+          <h3>AGV-Driven Fixture Flow Automation</h3>
+          <div class="meta">Funded by Walton Digi-Tech Industries Ltd. | 2024</div>
+          <p>Automated fixture transfer from SMT production line ends to the loading station using an AGV-based transport system. Designed navigation tracks, configured wireless call/send control, and supported obstacle avoidance.</p>
           <div class="tags">
-            <span class="tag">Embedded C</span><span class="tag">OpenCV</span><span class="tag">Micro-ROS</span>
+            <span class="tag">AGV</span><span class="tag">SMT Automation</span><span class="tag">Navigation Track</span>
           </div>
-          <div class="card-links">
-            <a href="#">tech_report.pdf →</a>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="card">
+          <div class="media-container">
+            <img src="assets/images/color-sorting.jpg" alt="Color Sorting System" />
+          </div>
+          <h3>Automated Color-Based Sorting System</h3>
+          <div class="meta">Undergraduate Project (RUET) | 2018</div>
+          <p>Developed an automated sorting system to identify and separate moving objects based on color. Implemented sensor-based color detection, conveyor control, and 2-DOF robotic arm kinematics.</p>
+          <div class="tags">
+            <span class="tag">2-DOF Robot Arm</span><span class="tag">Color Sensors</span><span class="tag">Kinematics</span>
           </div>
         </div>
 
@@ -380,51 +399,169 @@
     <!-- Publications Section -->
     <section id="publications">
       <h2 class="section-title">Publications</h2>
+
+      <div class="subsection-title">Journal Publications</div>
       <ul class="logo-list">
 
-        <!-- Journal Publication -->
         <li class="logo-item">
-          <img src="logos/ieee.png" alt="IEEE Logo" class="inst-logo" />
+          <img src="logos/kics.png" alt="KICS Logo" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
-              <div class="item-title">Mutual Information-Guided Adaptive Vision-Language Models on Edge Devices</div>
-              <span class="item-date">[2026]</span>
+              <div class="item-title">RAMP: Risk-Aware Motion Planning for Human-Safe UAV Navigation</div>
+              <span class="item-date">[Accepted]</span>
             </div>
-            <div class="item-sub">IEEE Transactions on Robotics (T-RO)</div>
-            <div class="item-desc"><b>Md Mukidur Rahman</b>, Co-Authors</div>
-            <div class="card-links" style="margin-top: 8px;">
-              <a href="#">[DOI Link]</a> <a href="#">[PDF]</a> <a href="#">[ROS2 Code]</a>
+            <div class="item-sub">The Journal of Korean Institute of Communications and Information Sciences (SCOPUS)</div>
+            <div class="item-desc"><b>Md Mukidur Rahman</b>, Soo Young Shin</div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <img src="logos/springer.png" alt="Autonomous Robots Logo" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Instantaneous Perception-Enhanced Human Trajectory Prediction for UAV Navigation in Dynamic Environments</div>
+              <span class="item-date">[Submitted]</span>
+            </div>
+            <div class="item-sub">Autonomous Robots (SCIE)</div>
+            <div class="item-desc"><b>Md Mukidur Rahman</b>, Soo Young Shin</div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <img src="logos/ieee.png" alt="IEEE Access Logo" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Robust extended H∞ control strategy using linear matrix inequality approach for islanded microgrid</div>
+              <span class="item-date">2020</span>
+            </div>
+            <div class="item-sub">IEEE Access, vol. 8, pp. 135883-135896 (SCIE)</div>
+            <div class="item-desc">Maniza Armin, Mizanur Rahman, <b>Md Mukidur Rahman</b>, Subrata K. Sarker, Sajal K. Das, Md Rabiul Islam, Abbas Z. Kouzani, MA Parvez Mahmud</div>
+          </div>
+        </li>
+
+      </ul>
+
+      <div class="subsection-title">Conference Proceedings</div>
+      <ul class="logo-list">
+
+        <li class="logo-item">
+          <img src="logos/kics.png" alt="KICS Conf" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Passive Avoidance for Human-Aware UAV Navigation via VO-Guided MPC</div>
+              <span class="item-date">2026</span>
+            </div>
+            <div class="item-sub">Proc. of the Korean Institute of Communication Sciences and Information Sciences Conference</div>
+            <div class="item-desc"><b>Md Mukidur Rahman</b>, Soo Young Shin</div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <img src="logos/kics.png" alt="KICS Conf" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Instantaneous Dynamic-Obstacle Perception for Autonomous UAV Navigation</div>
+              <span class="item-date">2025</span>
+            </div>
+            <div class="item-sub">Proc. of the Korean Institute of Communication Sciences and Information Sciences Conference</div>
+            <div class="item-desc"><b>Md Mukidur Rahman</b>, Soo Young Shin</div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <img src="logos/kics.png" alt="KICS Conf" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Dynamic Obstacle-Aware Navigation Framework for Complete Coverage in Aerial Exploration</div>
+              <span class="item-date">2025</span>
+            </div>
+            <div class="item-sub">Proc. of the Korean Institute of Communication Sciences and Information Sciences Conference, pp. 1115-1116</div>
+            <div class="item-desc"><b>Md Mukidur Rahman</b>, Soo Young Shin</div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <img src="logos/kics.png" alt="KICS Conf" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">A Multi-Sensor Fusion Orchard Mapping Framework for UAV-Based Fruit Harvesting</div>
+              <span class="item-date">2025</span>
+            </div>
+            <div class="item-sub">Proc. of the Korean Institute of Communication Sciences and Information Sciences Conference, pp. 636-637</div>
+            <div class="item-desc"><b>Md Mukidur Rahman</b>, Soo Young Shin</div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <img src="logos/ieee.png" alt="IEEE I-SMAC" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">A WSN (wireless sensor network) approach for controlling the actuator wirelessly through database interaction</div>
+              <span class="item-date">2023</span>
+            </div>
+            <div class="item-sub">7th International Conference on I-SMAC (IoT in Social, Mobile, Analytics and Cloud), pp. 314-319</div>
+            <div class="item-desc">Md Asif Bin Karim, <b>Md Mukidur Rahman</b>, Saquib Shahriar, Md Manirul Islam</div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <img src="logos/ieee.png" alt="IEEE iCEEiCT" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Fractional order robust PID controller design for voltage control of islanded microgrid</div>
+              <span class="item-date">2018</span>
+            </div>
+            <div class="item-sub">4th International Conference on Electrical Engineering and Information & Communication Technology (iCEEiCT), pp. 234-239</div>
+            <div class="item-desc">Stanley H. Sikder, <b>Md Mukidur Rahman</b>, Subrata K. Sarkar, Sajal K. Das</div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <img src="logos/ieee.png" alt="IEEE ICAEEE" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Implementation of Nelder-Mead optimization in designing fractional order PID controller for controlling voltage of islanded microgrid</div>
+              <span class="item-date">2018</span>
+            </div>
+            <div class="item-sub">International Conference on Advancement in Electrical and Electronic Engineering (ICAEEE), pp. 1-4</div>
+            <div class="item-desc">Stanley H. Sikder, <b>Md Mukidur Rahman</b>, Subrata K. Sarkar, Sajal K. Das, Md Arifur Rahman, Masuma Akter</div>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- Research Experience -->
+    <section id="research-exp">
+      <h2 class="section-title">Research Experience</h2>
+      <ul class="logo-list">
+
+        <li class="logo-item">
+          <img src="logos/kit.png" alt="KIT Logo" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Research Assistant (M.Sc. Student)</div>
+              <span class="item-date">Sep. 2024 – Aug. 2026</span>
+            </div>
+            <div class="item-sub">Wireless Emerging Network System (WENS) Laboratory, Kumoh National Institute of Technology</div>
+            <div class="item-desc">
+              <b>Supervisor:</b> Professor Dr. Soo Young Shin<br>
+              Research focus on autonomous UAV control, multi-GCS telemetry synchronization, ROS 2 integration, and perception-enhanced dynamic obstacle avoidance.
             </div>
           </div>
         </li>
 
         <li class="logo-item">
-          <img src="logos/ieee.png" alt="IEEE Logo" class="inst-logo" />
+          <img src="logos/ruet.png" alt="RUET Logo" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
-              <div class="item-title">Mutual Information-Guided Adaptive Vision-Language Models on Edge Devices</div>
-              <span class="item-date">[2026]</span>
+              <div class="item-title">Research Assistant (B.Sc. Student)</div>
+              <span class="item-date">Jan. 2017 – Mar. 2019</span>
             </div>
-            <div class="item-sub">IEEE Transactions on Robotics (T-RO)</div>
-            <div class="item-desc"><b>Md Mukidur Rahman</b>, Co-Authors</div>
-            <div class="card-links" style="margin-top: 8px;">
-              <a href="#">[DOI Link]</a> <a href="#">[PDF]</a> <a href="#">[ROS2 Code]</a>
-            </div>
-          </div>
-        </li>
-
-        <!-- Conference Publication -->
-        <li class="logo-item">
-          <img src="logos/iros.png" alt="IROS Logo" class="inst-logo" />
-          <div class="item-details">
-            <div class="item-header">
-              <div class="item-title">Risk-Aware Motion Planning for Human-Safe UAV Navigation</div>
-              <span class="item-date">[2025]</span>
-            </div>
-            <div class="item-sub">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</div>
-            <div class="item-desc"><b>Md Mukidur Rahman</b>, Co-Authors</div>
-            <div class="card-links" style="margin-top: 8px;">
-              <a href="#">[Paper PDF]</a> <a href="#">[Flight Video]</a> <a href="#">[Git Repo]</a>
+            <div class="item-sub">Control System Research Group, Rajshahi University of Engineering & Technology</div>
+            <div class="item-desc">
+              <b>Supervisor:</b> Dr. Sajal Kumar Das<br>
+              Focused on fractional-order robust PID controller design, Nelder-Mead optimization, and voltage control in islanded microgrids.
             </div>
           </div>
         </li>
@@ -432,67 +569,194 @@
       </ul>
     </section>
 
-    <!-- Education & Experience -->
+    <!-- Professional Experience -->
     <section id="experience">
-      <h2 class="section-title">Education & Professional Experience</h2>
-      
-      <h3 style="color: var(--accent); font-family: var(--font-code); margin-bottom: 16px;"># 01. Education</h3>
-      <ul class="logo-list" style="margin-bottom: 32px;">
-        <li class="logo-item">
-          <img src="logos/university-ms.png" alt="University Logo" class="inst-logo" />
-          <div class="item-details">
-            <div class="item-header">
-              <div class="item-title">Master of Science in Robotics / Artificial Intelligence</div>
-              <span class="item-date">2024 - 2026</span>
-            </div>
-            <div class="item-sub">Graduate University</div>
-            <div class="item-desc">Focused on Swarm UAV Autonomy, ROS 2 Navigation Stacks, and Real-time Edge Perception.</div>
-          </div>
-        </li>
-        <li class="logo-item">
-          <img src="logos/university-bsc.png" alt="University Logo" class="inst-logo" />
-          <div class="item-details">
-            <div class="item-header">
-              <div class="item-title">Bachelor of Science in Engineering</div>
-              <span class="item-date">2019 - 2023</span>
-            </div>
-            <div class="item-sub">Undergraduate University</div>
-            <div class="item-desc">Graduated with Honors. Specialized in Embedded Robotics and Control Systems.</div>
-          </div>
-        </li>
-      </ul>
-
-      <h3 style="color: var(--accent); font-family: var(--font-code); margin-bottom: 16px;"># 02. Professional Experience</h3>
+      <h2 class="section-title">Professional Experience</h2>
       <ul class="logo-list">
+
         <li class="logo-item">
-          <img src="logos/lab-logo.png" alt="Lab Logo" class="inst-logo" />
+          <img src="logos/walton.png" alt="Walton Logo" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
-              <div class="item-title">Graduate Research Assistant</div>
-              <span class="item-date">2024 - Present</span>
+              <div class="item-title">Head, Process Development</div>
+              <span class="item-date">Feb. 2024 – Aug. 2024</span>
             </div>
-            <div class="item-sub">Field Robotics & Autonomous Systems Lab</div>
-            <div class="item-desc">Developed decentralized ROS 2 packages for autonomous UAV dynamic path planning and edge VLM optimization.</div>
+            <div class="item-sub">Walton Digi-Tech Industries Limited</div>
+            <div class="item-desc">
+              <ul>
+                <li>Design and optimize production processes, optimize process cost, and enhance production efficiency with full quality standards and safety regulations.</li>
+                <li>Analyze and troubleshoot process breakdowns, identify root causes, and execute corrective actions to minimize downtime and prevent recurrence.</li>
+              </ul>
+            </div>
           </div>
         </li>
+
+        <li class="logo-item">
+          <img src="logos/walton.png" alt="Walton Logo" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Manufacturing (SMT) Process Engineer</div>
+              <span class="item-date">Aug. 2021 – Feb. 2024</span>
+            </div>
+            <div class="item-sub">Walton Digi-Tech Industries Limited</div>
+            <div class="item-desc">
+              <ul>
+                <li>Debug and optimize programs for SMT machinery including SPI, Pick & Place, AOI, X-ray, and reflow thermal profilers.</li>
+                <li>Optimize SMT manufacturing processes, reducing defects and waste utilizing Lean methodologies.</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <img src="logos/vivo.png" alt="Vivo Logo" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Sr. Quality Assurance Engineer</div>
+              <span class="item-date">Jan. 2021 – Aug. 2021</span>
+            </div>
+            <div class="item-sub">Vivo Mobile Bangladesh</div>
+            <div class="item-desc">
+              <ul>
+                <li>Assess testability of new products, conduct trial production, and execute reliability testing as NPI Coordinator.</li>
+                <li>Execute process monitoring and inspection to identify nonconformity, evaluate quality risks, and enforce control processes.</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <img src="logos/samsung.png" alt="Samsung Fair Logo" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Quality Control Engineer</div>
+              <span class="item-date">Mar. 2019 – Jan. 2021</span>
+            </div>
+            <div class="item-sub">SAMSUNG – Fair Electronics Limited</div>
+            <div class="item-desc">
+              <ul>
+                <li>Developed Quality Assurance plans defining test methods, standards, and SOPs for smartphone manufacturing.</li>
+                <li>Analyzed faults using Pareto charts, Cause & Effect Diagrams, FMEA, and 5Whys. Executed 8D methodology for CAPA.</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
       </ul>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <h2 class="section-title">Academic Records</h2>
+      <ul class="logo-list">
+
+        <li class="logo-item">
+          <img src="logos/kit.png" alt="KIT Logo" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Master in Engineering, IT Convergence Engineering</div>
+              <span class="item-date">Sep. 2024 – Aug. 2026</span>
+            </div>
+            <div class="item-sub">Kumoh National Institute of Technology (KIT), Gumi, South Korea</div>
+            <div class="item-desc"><b>CGPA:</b> 4.50 out of 4.50</div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <img src="logos/ruet.png" alt="RUET Logo" class="inst-logo" />
+          <div class="item-details">
+            <div class="item-header">
+              <div class="item-title">Bachelor of Science in Engineering, Mechatronics Engineering</div>
+              <span class="item-date">Mar. 2014 – Feb. 2019</span>
+            </div>
+            <div class="item-sub">Rajshahi University of Engineering & Technology (RUET), Rajshahi, Bangladesh</div>
+            <div class="item-desc"><b>CGPA:</b> 3.07 out of 4.00</div>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- Skills & Languages -->
+    <section id="skills">
+      <h2 class="section-title">Technical Skills & Linguistics</h2>
+      <div class="skills-grid">
+        
+        <div class="skill-box">
+          <h4>Programming Languages</h4>
+          <p>C, C++, Python, MATLAB</p>
+        </div>
+
+        <div class="skill-box">
+          <h4>Robotics Platforms</h4>
+          <p>ROS, ROS 2, Gazebo, PX4 Autopilot</p>
+        </div>
+
+        <div class="skill-box">
+          <h4>Embedded & Hardware</h4>
+          <p>Arduino, AVR Microcontrollers, AGV Navigation</p>
+        </div>
+
+        <div class="skill-box">
+          <h4>Development Tools</h4>
+          <p>Git, LaTeX, Docker, Linux</p>
+        </div>
+
+        <div class="skill-box" style="grid-column: 1 / -1;">
+          <h4>Linguistic Proficiency</h4>
+          <p><b>English:</b> IELTS Overall Band Score: 7.0 (Listening: 8.0, Reading: 6.5, Writing: 6.5, Speaking: 7.0)</p>
+        </div>
+
+      </div>
     </section>
 
     <!-- Awards & Honors -->
     <section id="awards">
-      <h2 class="section-title">Honors & Accolades</h2>
+      <h2 class="section-title">Awards & Honors</h2>
       <ul class="logo-list">
+
         <li class="logo-item">
-          <img src="logos/award-logo.png" alt="Award Logo" class="inst-logo" />
           <div class="item-details">
-            <div class="item-header">
-              <div class="item-title">Best Student Paper Presentation Award</div>
-              <span class="item-date">2025</span>
-            </div>
-            <div class="item-sub">International Robotics Symposium</div>
-            <div class="item-desc">Presented decentralized multi-drone collaborative trajectory planning.</div>
+            <div class="item-title">• Global Korea Scholarship (GKS) by Kumoh National Institute of Technology</div>
           </div>
         </li>
+
+        <li class="logo-item">
+          <div class="item-details">
+            <div class="item-title">• Organizing Secretary, Robotic Society of RUET (RSR)</div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <div class="item-details">
+            <div class="item-title">• 6th Place at Indian Rover Challenge organized by Vellore Institute of Technology</div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <div class="item-details">
+            <div class="item-title">• Runner-up Award in Line Following Robot Category at Intra RUET Robo-App Challenge (IEEE RUET Student Branch)</div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <div class="item-details">
+            <div class="item-title">• Top-12 Award in Idea Contest at ETCell Weekend organized by IEEE RUET Student Branch</div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <div class="item-details">
+            <div class="item-title">• Undergraduate Scholarship by the University Grants Commission of Bangladesh</div>
+          </div>
+        </li>
+
+        <li class="logo-item">
+          <div class="item-details">
+            <div class="item-title">• Secondary Scholarship by Ministry of Education, Government of Bangladesh</div>
+          </div>
+        </li>
+
       </ul>
     </section>
 
@@ -500,13 +764,13 @@
 
   <footer>
     <div class="container">
-      <p>© 2026 Md Mukidur Rahman | ros2 run portfolio_node --status=healthy</p>
+      <p>© 2026 Md. Mukidur Rahman | Autonomous UAV & Robotics Portfolio</p>
     </div>
   </footer>
 
-  <!-- Typewriter Animation Script -->
+  <!-- Typewriter Script -->
   <script>
-    const textToType = "Md Mukidur Rahman";
+    const textToType = "Md. Mukidur Rahman";
     const targetElement = document.getElementById("typewriter");
     let charIndex = 0;
 
@@ -518,9 +782,8 @@
       }
     }
 
-    // Start animation on load
     document.addEventListener("DOMContentLoaded", () => {
-      setTimeout(typeCharacter, 400);
+      setTimeout(typeCharacter, 300);
     });
   </script>
 
