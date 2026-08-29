@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Md. Mukidur Rahman | UAV & ROS 2 Robotics Researcher</title>
   
-  <!-- Developer & Engineering Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,6 +16,7 @@
       --header-bg: rgba(106, 109, 109, 0.95);
       --card-bg: #545757;
       --terminal-bg: #2d3030;
+      --dropdown-bg: #404343;
       --text-main: #ffffff;
       --text-muted: #dcdfe3;
       --accent: #67e8f9;           /* Clean Sensor Cyan */
@@ -58,15 +58,54 @@
       text-decoration: none; 
     }
     .logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 16px; list-style: none; }
-    .nav-links a { 
+    .nav-links { display: flex; gap: 16px; list-style: none; align-items: center; }
+    .nav-links a, .dropdown-btn { 
       font-family: var(--font-code); 
       color: var(--text-muted); 
       text-decoration: none; 
       font-size: 0.82rem; 
       transition: color 0.2s; 
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover, .dropdown:hover .dropdown-btn { color: var(--accent); }
+
+    /* Dropdown Styling */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--dropdown-bg);
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 0;
+      z-index: 1001;
+    }
+    .dropdown-content a {
+      color: var(--text-main);
+      padding: 8px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 0.8rem;
+    }
+    .dropdown-content a:hover {
+      background-color: var(--terminal-bg);
+      color: var(--accent);
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
 
     /* Hero */
     .hero { padding: 40px 0 40px; display: grid; grid-template-columns: 2.3fr 1fr; gap: 40px; align-items: center; }
@@ -233,7 +272,6 @@
 </head>
 <body>
 
-  <!-- Navigation -->
   <header>
     <div class="container">
       <nav>
@@ -241,8 +279,16 @@
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#focus">Focus</a></li>
-          <li><a href="#ms-projects">MS Projects</a></li>
-          <li><a href="#bsc-projects">BSc/Industry</a></li>
+          
+          <li class="dropdown">
+            <button class="dropdown-btn">Projects ▾</button>
+            <div class="dropdown-content">
+              <a href="#ms-projects">MS Projects</a>
+              <a href="#bs-projects">BS Projects</a>
+              <a href="#industry-projects">Industry</a>
+            </div>
+          </li>
+
           <li><a href="#publications">Publications</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#education">Education</a></li>
@@ -255,7 +301,6 @@
 
   <main class="container">
 
-    <!-- Hero Section -->
     <section class="hero" id="about">
       <div>
         <div class="status-badge">
@@ -287,7 +332,6 @@
       </div>
     </section>
 
-    <!-- Research Interests -->
     <section id="focus">
       <h2 class="section-title">Research Interests</h2>
       <div class="grid">
@@ -315,12 +359,10 @@
       </div>
     </section>
 
-    <!-- Master's Projects -->
     <section id="ms-projects">
-      <h2 class="section-title">Master's Research & Projects (M.Eng.)</h2>
+      <h2 class="section-title">Master's Research & Projects (MS Projects)</h2>
       <div class="grid">
 
-        <!-- Project 1 -->
         <div class="card">
           <div class="media-container">
             <img src="assets/images/aeroterra.jpg" alt="Aeroterra Multi UAV Exploration" />
@@ -333,7 +375,6 @@
           </div>
         </div>
 
-        <!-- Project 2 -->
         <div class="card">
           <div class="media-container">
             <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="UAV Obstacle Avoidance" allowfullscreen></iframe>
@@ -346,7 +387,6 @@
           </div>
         </div>
 
-        <!-- Project 3 -->
         <div class="card">
           <div class="media-container">
             <img src="assets/images/multi-gcs.jpg" alt="Multi-GCS Handover" />
@@ -362,12 +402,29 @@
       </div>
     </section>
 
-    <!-- Bachelor's & Industrial Projects -->
-    <section id="bsc-projects">
-      <h2 class="section-title">Bachelor's & Industrial Projects</h2>
+    <section id="bs-projects">
+      <h2 class="section-title">Bachelor's Projects (BS Projects)</h2>
       <div class="grid">
 
-        <!-- Project 4 -->
+        <div class="card">
+          <div class="media-container">
+            <img src="assets/images/color-sorting.jpg" alt="Color Sorting System" />
+          </div>
+          <h3>Automated Color-Based Sorting System</h3>
+          <div class="meta">Undergraduate Project (RUET) | 2018</div>
+          <p>Developed an automated sorting system to identify and separate moving objects based on color. Implemented sensor-based color detection, conveyor control, and 2-DOF robotic arm kinematics for accurate object sorting.</p>
+          <div class="tags">
+            <span class="tag">2-DOF Robot Arm</span><span class="tag">Color Sensors</span><span class="tag">Kinematics</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="industry-projects">
+      <h2 class="section-title">Industry Projects</h2>
+      <div class="grid">
+
         <div class="card">
           <div class="media-container">
             <img src="assets/images/agv-fixture.jpg" alt="AGV Fixture Automation" />
@@ -380,23 +437,9 @@
           </div>
         </div>
 
-        <!-- Project 5 -->
-        <div class="card">
-          <div class="media-container">
-            <img src="assets/images/color-sorting.jpg" alt="Color Sorting System" />
-          </div>
-          <h3>Automated Color-Based Sorting System</h3>
-          <div class="meta">Undergraduate Project (RUET) | 2018</div>
-          <p>Developed an automated sorting system to identify and separate moving objects based on color. Implemented sensor-based color detection, conveyor control, and 2-DOF robotic arm kinematics.</p>
-          <div class="tags">
-            <span class="tag">2-DOF Robot Arm</span><span class="tag">Color Sensors</span><span class="tag">Kinematics</span>
-          </div>
-        </div>
-
       </div>
     </section>
 
-    <!-- Publications Section -->
     <section id="publications">
       <h2 class="section-title">Publications</h2>
 
@@ -404,7 +447,7 @@
       <ul class="logo-list">
 
         <li class="logo-item">
-          <img src="assets/images/VO3.png" alt="KICS Logo" class="inst-logo" />
+          <img src="logos/kics.png" alt="KICS Logo" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
               <div class="item-title">RAMP: Risk-Aware Motion Planning for Human-Safe UAV Navigation</div>
@@ -416,7 +459,7 @@
         </li>
 
         <li class="logo-item">
-          <img src="assets/images/ScenarioSCIE.png" alt="Autonomous Robots Logo" class="inst-logo" />
+          <img src="logos/springer.png" alt="Autonomous Robots Logo" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
               <div class="item-title">Instantaneous Perception-Enhanced Human Trajectory Prediction for UAV Navigation in Dynamic Environments</div>
@@ -428,7 +471,7 @@
         </li>
 
         <li class="logo-item">
-          <img src="assets/images/Microgrid.png" alt="IEEE Access Logo" class="inst-logo" />
+          <img src="logos/ieee.png" alt="IEEE Access Logo" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
               <div class="item-title">Robust extended H∞ control strategy using linear matrix inequality approach for islanded microgrid</div>
@@ -531,13 +574,12 @@
       </ul>
     </section>
 
-    <!-- Research Experience -->
     <section id="research-exp">
       <h2 class="section-title">Research Experience</h2>
       <ul class="logo-list">
 
         <li class="logo-item">
-          <img src="logos/WENS.png" alt="KIT Logo" class="inst-logo" />
+          <img src="logos/kit.png" alt="KIT Logo" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
               <div class="item-title">Research Assistant (M.Sc. Student)</div>
@@ -552,7 +594,7 @@
         </li>
 
         <li class="logo-item">
-          <img src="logos/CSRG.jpg" alt="CSRG Logo" class="inst-logo" />
+          <img src="logos/ruet.png" alt="RUET Logo" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
               <div class="item-title">Research Assistant (B.Sc. Student)</div>
@@ -569,13 +611,12 @@
       </ul>
     </section>
 
-    <!-- Professional Experience -->
     <section id="experience">
       <h2 class="section-title">Professional Experience</h2>
       <ul class="logo-list">
 
         <li class="logo-item">
-          <img src="logos/walton.jpg" alt="Walton Logo" class="inst-logo" />
+          <img src="logos/walton.png" alt="Walton Logo" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
               <div class="item-title">Head, Process Development</div>
@@ -592,7 +633,7 @@
         </li>
 
         <li class="logo-item">
-          <img src="logos/walton.jpg" alt="Walton Logo" class="inst-logo" />
+          <img src="logos/walton.png" alt="Walton Logo" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
               <div class="item-title">Manufacturing (SMT) Process Engineer</div>
@@ -626,7 +667,7 @@
         </li>
 
         <li class="logo-item">
-          <img src="logos/Fair.png" alt="Samsung Fair Logo" class="inst-logo" />
+          <img src="logos/samsung.png" alt="Samsung Fair Logo" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
               <div class="item-title">Quality Control Engineer</div>
@@ -645,13 +686,12 @@
       </ul>
     </section>
 
-    <!-- Education -->
     <section id="education">
       <h2 class="section-title">Academic Records</h2>
       <ul class="logo-list">
 
         <li class="logo-item">
-          <img src="logos/KIT.jpg" alt="KIT Logo" class="inst-logo" />
+          <img src="logos/kit.png" alt="KIT Logo" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
               <div class="item-title">Master in Engineering, IT Convergence Engineering</div>
@@ -663,7 +703,7 @@
         </li>
 
         <li class="logo-item">
-          <img src="logos/RUET.jpg" alt="RUET Logo" class="inst-logo" />
+          <img src="logos/ruet.png" alt="RUET Logo" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
               <div class="item-title">Bachelor of Science in Engineering, Mechatronics Engineering</div>
@@ -677,7 +717,6 @@
       </ul>
     </section>
 
-    <!-- Skills & Languages -->
     <section id="skills">
       <h2 class="section-title">Technical Skills & Linguistics</h2>
       <div class="skills-grid">
@@ -710,7 +749,6 @@
       </div>
     </section>
 
-    <!-- Awards & Honors -->
     <section id="awards">
       <h2 class="section-title">Awards & Honors</h2>
       <ul class="logo-list">
@@ -768,7 +806,6 @@
     </div>
   </footer>
 
-  <!-- Typewriter Script -->
   <script>
     const textToType = "Md. Mukidur Rahman";
     const targetElement = document.getElementById("typewriter");
