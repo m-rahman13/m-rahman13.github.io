@@ -74,11 +74,8 @@
     }
     .nav-links a:hover, .dropdown:hover .dropdown-btn { color: var(--accent); }
 
-    /* Dropdown Styling */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
+    /* Dropdown */
+    .dropdown { position: relative; display: inline-block; }
     .dropdown-content {
       display: none;
       position: absolute;
@@ -92,24 +89,12 @@
       padding: 6px 0;
       z-index: 1001;
     }
-    .dropdown-content a {
-      color: var(--text-main);
-      padding: 8px 16px;
-      text-decoration: none;
-      display: block;
-      font-size: 0.8rem;
-    }
-    .dropdown-content a:hover {
-      background-color: var(--terminal-bg);
-      color: var(--accent);
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
+    .dropdown-content a { color: var(--text-main); padding: 8px 16px; text-decoration: none; display: block; font-size: 0.8rem; }
+    .dropdown-content a:hover { background-color: var(--terminal-bg); color: var(--accent); }
+    .dropdown:hover .dropdown-content { display: block; }
 
     /* Hero */
     .hero { padding: 40px 0 40px; display: grid; grid-template-columns: 2.3fr 1fr; gap: 40px; align-items: center; }
-    
     .status-badge { 
       display: inline-flex; 
       align-items: center; 
@@ -127,54 +112,16 @@
 
     /* Animated Name */
     .name-container { margin-bottom: 12px; }
-    .ros-node-tag {
-      font-family: var(--font-code);
-      font-size: 0.9rem;
-      color: var(--accent);
-      margin-bottom: 4px;
-      display: block;
-    }
-    .animated-name {
-      font-size: 2.6rem;
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.5px;
-      display: inline-block;
-    }
-    .cursor {
-      display: inline-block;
-      width: 10px;
-      height: 2rem;
-      background-color: var(--accent);
-      margin-left: 6px;
-      vertical-align: middle;
-      animation: blink 0.9s infinite;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
+    .ros-node-tag { font-family: var(--font-code); font-size: 0.9rem; color: var(--accent); margin-bottom: 4px; display: block; }
+    .animated-name { font-size: 2.6rem; font-weight: 700; line-height: 1.15; letter-spacing: -0.5px; display: inline-block; }
+    .cursor { display: inline-block; width: 10px; height: 2rem; background-color: var(--accent); margin-left: 6px; vertical-align: middle; animation: blink 0.9s infinite; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-    .hero-contact {
-      font-family: var(--font-code);
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      line-height: 1.8;
-    }
+    .hero-contact { font-family: var(--font-code); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px; line-height: 1.8; }
     .hero-contact a { color: var(--accent); text-decoration: none; }
     .hero-contact a:hover { text-decoration: underline; }
-
     .hero p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 24px; }
-    .profile-img { 
-      width: 100%; 
-      max-width: 230px; 
-      aspect-ratio: 1; 
-      border-radius: 12px; 
-      object-fit: cover; 
-      border: 2px solid var(--accent); 
-      box-shadow: 0 8px 30px rgba(0,0,0,0.35); 
-    }
+    .profile-img { width: 100%; max-width: 230px; aspect-ratio: 1; border-radius: 12px; object-fit: cover; border: 2px solid var(--accent); box-shadow: 0 8px 30px rgba(0,0,0,0.35); }
 
     /* Buttons */
     .btn { display: inline-block; padding: 8px 16px; border-radius: 4px; font-family: var(--font-code); font-weight: 600; font-size: 0.82rem; text-decoration: none; transition: all 0.2s; }
@@ -185,22 +132,9 @@
 
     /* Sections */
     section { padding: 45px 0; border-top: 1px solid var(--border); }
-    .section-title { 
-      font-size: 1.45rem; 
-      font-weight: 700; 
-      margin-bottom: 24px; 
-      display: flex; 
-      align-items: center; 
-      gap: 12px; 
-      font-family: var(--font-heading);
-    }
+    .section-title { font-size: 1.45rem; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; font-family: var(--font-heading); }
     .section-title::after { content: ""; flex: 1; height: 1px; background: var(--border); }
-    .subsection-title {
-      font-family: var(--font-code);
-      color: var(--accent);
-      font-size: 1rem;
-      margin: 24px 0 14px;
-    }
+    .subsection-title { font-family: var(--font-code); color: var(--accent); font-size: 1rem; margin: 24px 0 14px; }
 
     /* Cards & Grids */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
@@ -215,14 +149,11 @@
     .media-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .media-container iframe { width: 100%; height: 100%; border: none; }
 
-    /* Tags & Links */
+    /* Tags */
     .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; margin-top: auto; }
     .tag { background: var(--chip-bg); border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; font-family: var(--font-code); font-size: 0.72rem; color: var(--accent); }
-    .card-links { display: flex; gap: 14px; font-family: var(--font-code); font-size: 0.82rem; }
-    .card-links a { color: var(--accent); text-decoration: none; font-weight: 600; }
-    .card-links a:hover { text-decoration: underline; }
 
-    /* Logo Item List (Education, Experience, Publications, Awards) */
+    /* Lists with Logos */
     .logo-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
     .logo-item { 
       background: var(--card-bg); 
@@ -252,6 +183,74 @@
     .item-desc { color: var(--text-muted); font-size: 0.86rem; margin-top: 6px; }
     .item-desc ul { margin-left: 18px; margin-top: 6px; }
     .item-desc li { margin-bottom: 4px; }
+
+    /* ==================================================== */
+    /* Interactive Clickable Conference & Photo Gallery Styling */
+    /* ==================================================== */
+    .clickable-conference {
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .clickable-conference:hover {
+      border-color: var(--accent);
+      background: #5b5f5f;
+    }
+    .photo-badge {
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      background: var(--chip-bg);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--accent);
+      margin-left: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .conference-gallery {
+      display: none; /* Controlled by JS */
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+    }
+    .conference-gallery.open {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .gallery-img-card {
+      background: #2d3030;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .gallery-img-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+    .gallery-img-card:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-caption {
+      font-family: var(--font-code);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
 
     /* Skills Grid */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
@@ -484,90 +483,162 @@
 
       </ul>
 
-      <div class="subsection-title">Conference Proceedings</div>
+      <div class="subsection-title">Conference Proceedings (Click any title to view photos)</div>
       <ul class="logo-list">
 
-        <li class="logo-item">
+        <li class="logo-item clickable-conference" onclick="toggleGallery('conf-2026-1')">
           <img src="logos/kics.png" alt="KICS Conf" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
-              <div class="item-title">Passive Avoidance for Human-Aware UAV Navigation via VO-Guided MPC</div>
+              <div class="item-title">
+                Passive Avoidance for Human-Aware UAV Navigation via VO-Guided MPC
+                <span class="photo-badge">[📷 Click for Photos]</span>
+              </div>
               <span class="item-date">2026</span>
             </div>
             <div class="item-sub">Proc. of the Korean Institute of Communication Sciences and Information Sciences Conference</div>
             <div class="item-desc"><b>Md Mukidur Rahman</b>, Soo Young Shin</div>
+            
+            <div id="conf-2026-1" class="conference-gallery">
+              <div class="gallery-caption">[Telemetry & Session Presentation Photos]</div>
+              <div class="gallery-grid">
+                <div class="gallery-img-card"><img src="assets/images/conferences/kics2026_1.jpg" alt="Presentation photo" /></div>
+                <div class="gallery-img-card"><img src="assets/images/conferences/kics2026_2.jpg" alt="Session discussion" /></div>
+              </div>
+            </div>
           </div>
         </li>
 
-        <li class="logo-item">
+        <li class="logo-item clickable-conference" onclick="toggleGallery('conf-2025-1')">
           <img src="logos/kics.png" alt="KICS Conf" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
-              <div class="item-title">Instantaneous Dynamic-Obstacle Perception for Autonomous UAV Navigation</div>
+              <div class="item-title">
+                Instantaneous Dynamic-Obstacle Perception for Autonomous UAV Navigation
+                <span class="photo-badge">[📷 Click for Photos]</span>
+              </div>
               <span class="item-date">2025</span>
             </div>
             <div class="item-sub">Proc. of the Korean Institute of Communication Sciences and Information Sciences Conference</div>
             <div class="item-desc"><b>Md Mukidur Rahman</b>, Soo Young Shin</div>
+            
+            <div id="conf-2025-1" class="conference-gallery">
+              <div class="gallery-caption">[Presentation & Poster Session]</div>
+              <div class="gallery-grid">
+                <div class="gallery-img-card"><img src="assets/images/conferences/kics2025_perception_1.jpg" alt="Presentation photo" /></div>
+                <div class="gallery-img-card"><img src="assets/images/conferences/kics2025_perception_2.jpg" alt="Poster display" /></div>
+              </div>
+            </div>
           </div>
         </li>
 
-        <li class="logo-item">
+        <li class="logo-item clickable-conference" onclick="toggleGallery('conf-2025-2')">
           <img src="logos/kics.png" alt="KICS Conf" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
-              <div class="item-title">Dynamic Obstacle-Aware Navigation Framework for Complete Coverage in Aerial Exploration</div>
+              <div class="item-title">
+                Dynamic Obstacle-Aware Navigation Framework for Complete Coverage in Aerial Exploration
+                <span class="photo-badge">[📷 Click for Photos]</span>
+              </div>
               <span class="item-date">2025</span>
             </div>
             <div class="item-sub">Proc. of the Korean Institute of Communication Sciences and Information Sciences Conference, pp. 1115-1116</div>
             <div class="item-desc"><b>Md Mukidur Rahman</b>, Soo Young Shin</div>
+            
+            <div id="conf-2025-2" class="conference-gallery">
+              <div class="gallery-caption">[Conference Session Photos]</div>
+              <div class="gallery-grid">
+                <div class="gallery-img-card"><img src="assets/images/conferences/kics2025_coverage_1.jpg" alt="Session presentation" /></div>
+              </div>
+            </div>
           </div>
         </li>
 
-        <li class="logo-item">
+        <li class="logo-item clickable-conference" onclick="toggleGallery('conf-2025-3')">
           <img src="logos/kics.png" alt="KICS Conf" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
-              <div class="item-title">A Multi-Sensor Fusion Orchard Mapping Framework for UAV-Based Fruit Harvesting</div>
+              <div class="item-title">
+                A Multi-Sensor Fusion Orchard Mapping Framework for UAV-Based Fruit Harvesting
+                <span class="photo-badge">[📷 Click for Photos]</span>
+              </div>
               <span class="item-date">2025</span>
             </div>
             <div class="item-sub">Proc. of the Korean Institute of Communication Sciences and Information Sciences Conference, pp. 636-637</div>
             <div class="item-desc"><b>Md Mukidur Rahman</b>, Soo Young Shin</div>
+            
+            <div id="conf-2025-3" class="conference-gallery">
+              <div class="gallery-caption">[Session Presentation & Discussion]</div>
+              <div class="gallery-grid">
+                <div class="gallery-img-card"><img src="assets/images/conferences/kics2025_orchard_1.jpg" alt="Orchard mapping presentation" /></div>
+              </div>
+            </div>
           </div>
         </li>
 
-        <li class="logo-item">
+        <li class="logo-item clickable-conference" onclick="toggleGallery('conf-2023-1')">
           <img src="logos/ieee.png" alt="IEEE I-SMAC" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
-              <div class="item-title">A WSN (wireless sensor network) approach for controlling the actuator wirelessly through database interaction</div>
+              <div class="item-title">
+                A WSN (wireless sensor network) approach for controlling the actuator wirelessly through database interaction
+                <span class="photo-badge">[📷 Click for Photos]</span>
+              </div>
               <span class="item-date">2023</span>
             </div>
             <div class="item-sub">7th International Conference on I-SMAC (IoT in Social, Mobile, Analytics and Cloud), pp. 314-319</div>
             <div class="item-desc">Md Asif Bin Karim, <b>Md Mukidur Rahman</b>, Saquib Shahriar, Md Manirul Islam</div>
+            
+            <div id="conf-2023-1" class="conference-gallery">
+              <div class="gallery-caption">[I-SMAC Conference Presentation]</div>
+              <div class="gallery-grid">
+                <div class="gallery-img-card"><img src="assets/images/conferences/ismac2023_1.jpg" alt="I-SMAC presentation" /></div>
+              </div>
+            </div>
           </div>
         </li>
 
-        <li class="logo-item">
+        <li class="logo-item clickable-conference" onclick="toggleGallery('conf-2018-1')">
           <img src="logos/ieee.png" alt="IEEE iCEEiCT" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
-              <div class="item-title">Fractional order robust PID controller design for voltage control of islanded microgrid</div>
+              <div class="item-title">
+                Fractional order robust PID controller design for voltage control of islanded microgrid
+                <span class="photo-badge">[📷 Click for Photos]</span>
+              </div>
               <span class="item-date">2018</span>
             </div>
             <div class="item-sub">4th International Conference on Electrical Engineering and Information & Communication Technology (iCEEiCT), pp. 234-239</div>
             <div class="item-desc">Stanley H. Sikder, <b>Md Mukidur Rahman</b>, Subrata K. Sarkar, Sajal K. Das</div>
+            
+            <div id="conf-2018-1" class="conference-gallery">
+              <div class="gallery-caption">[iCEEiCT Session Photos]</div>
+              <div class="gallery-grid">
+                <div class="gallery-img-card"><img src="assets/images/conferences/iceeict2018_1.jpg" alt="iCEEiCT session" /></div>
+              </div>
+            </div>
           </div>
         </li>
 
-        <li class="logo-item">
+        <li class="logo-item clickable-conference" onclick="toggleGallery('conf-2018-2')">
           <img src="logos/ieee.png" alt="IEEE ICAEEE" class="inst-logo" />
           <div class="item-details">
             <div class="item-header">
-              <div class="item-title">Implementation of Nelder-Mead optimization in designing fractional order PID controller for controlling voltage of islanded microgrid</div>
+              <div class="item-title">
+                Implementation of Nelder-Mead optimization in designing fractional order PID controller for controlling voltage of islanded microgrid
+                <span class="photo-badge">[📷 Click for Photos]</span>
+              </div>
               <span class="item-date">2018</span>
             </div>
             <div class="item-sub">International Conference on Advancement in Electrical and Electronic Engineering (ICAEEE), pp. 1-4</div>
             <div class="item-desc">Stanley H. Sikder, <b>Md Mukidur Rahman</b>, Subrata K. Sarkar, Sajal K. Das, Md Arifur Rahman, Masuma Akter</div>
+            
+            <div id="conf-2018-2" class="conference-gallery">
+              <div class="gallery-caption">[ICAEEE Presentation Photos]</div>
+              <div class="gallery-grid">
+                <div class="gallery-img-card"><img src="assets/images/conferences/icaeee2018_1.jpg" alt="ICAEEE presentation" /></div>
+              </div>
+            </div>
           </div>
         </li>
 
@@ -807,6 +878,7 @@
   </footer>
 
   <script>
+    // Typewriter effect for name
     const textToType = "Md. Mukidur Rahman";
     const targetElement = document.getElementById("typewriter");
     let charIndex = 0;
@@ -816,6 +888,14 @@
         targetElement.textContent += textToType.charAt(charIndex);
         charIndex++;
         setTimeout(typeCharacter, 110);
+      }
+    }
+
+    // Toggle Conference Photo Gallery function
+    function toggleGallery(galleryId) {
+      const gallery = document.getElementById(galleryId);
+      if (gallery) {
+        gallery.classList.toggle('open');
       }
     }
 
