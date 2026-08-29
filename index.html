@@ -136,7 +136,7 @@
     .section-title::after { content: ""; flex: 1; height: 1px; background: var(--border); }
     .subsection-title { font-family: var(--font-code); color: var(--accent); font-size: 1rem; margin: 24px 0 14px; }
 
-    /* Cards & Grids */
+    /* Uniform Cards & Grids Across All Project Sections */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
     .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
     .card:hover { transform: translateY(-3px); border-color: var(--accent); }
@@ -144,7 +144,7 @@
     .card .meta { font-family: var(--font-code); font-size: 0.78rem; color: var(--accent); margin-bottom: 10px; }
     .card p { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 14px; }
 
-    /* Media Handling */
+    /* Media Handling (Identical 16:9 aspect ratio across all cards) */
     .media-container { width: 100%; border-radius: 6px; overflow: hidden; margin-bottom: 14px; background: #262828; aspect-ratio: 16/9; border: 1px solid var(--border); }
     .media-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .media-container iframe { width: 100%; height: 100%; border: none; }
@@ -422,10 +422,34 @@
             <img src="assets/images/agv-fixture.jpg" alt="AGV Fixture Automation" />
           </div>
           <h3>AGV-Driven Fixture Flow Automation</h3>
-          <div class="meta">Funded by Walton Digi-Tech Industries Ltd. | 2024</div>
+          <div class="meta">Walton Digi-Tech Industries Ltd. | 2024</div>
           <p>Automated fixture transfer from SMT production line ends to the loading station using an AGV-based transport system. Designed navigation tracks, configured wireless call/send control, and supported obstacle avoidance.</p>
           <div class="tags">
-            <span class="tag">AGV</span><span class="tag">SMT Automation</span><span class="tag">Navigation Track</span>
+            <span class="tag">AGV Navigation</span><span class="tag">Wireless Control</span><span class="tag">SMT Automation</span><span class="tag">Factory Robotics</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="media-container">
+            <img src="assets/images/smt-optimization.jpg" alt="SMT Process Optimization" />
+          </div>
+          <h3>SMT Line Machine Calibration & Profiling</h3>
+          <div class="meta">Walton Digi-Tech Industries Ltd. | 2021 – 2024</div>
+          <p>Debugged, programmed, and optimized high-speed SMT lines involving Solder Paste Inspection (SPI), Pick & Place, 3D AOI, and reflow thermal profiling to minimize scrap and reduce defects.</p>
+          <div class="tags">
+            <span class="tag">AOI / SPI</span><span class="tag">Thermal Profiling</span><span class="tag">Process Control</span><span class="tag">Lean Automation</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="media-container">
+            <img src="assets/images/qa-npi.jpg" alt="Smartphone NPI Quality Framework" />
+          </div>
+          <h3>NPI Quality & Reliability Validation Framework</h3>
+          <div class="meta">Vivo Mobile & Samsung-Fair Electronics | 2019 – 2021</div>
+          <p>Coordinated New Product Introduction (NPI) trial production, reliability stress testing, and quality control flows. Analyzed failure modes using 8D CAPA, FMEA, and automated optical inspection data.</p>
+          <div class="tags">
+            <span class="tag">NPI Validation</span><span class="tag">Reliability Testing</span><span class="tag">FMEA / 8D</span><span class="tag">Quality Engineering</span>
           </div>
         </div>
 
